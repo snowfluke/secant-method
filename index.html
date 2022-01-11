@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metode Numerik Metode Secant</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/default.min.css"
+    />
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/languages/js.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <style>
+      div {
+        padding: 10px;
+        border: 1px solid #d1d1d1;
+        border-radius: 10px;
+        display: flex;
+        margin: 10px;
+        flex-direction: column;
+      }
+
+      body {
+        width: 80%;
+        display: grid;
+        margin: 0 auto;
+        background-color: #efefef;
+      }
+
+      * {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+
+      h2 {
+        color: teal;
+      }
+
+      p {
+        display: flex;
+        flex: 1;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        color: teal;
+      }
+
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        overflow: hidden;
+        margin: 0 auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        padding: 15px;
+      }
+
+      td {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      th {
+        color: #fff;
+        text-align: left;
+        background: teal;
+      }
+
+      span {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Metode Numerik Secant - Kelompok 5</h2>
+      <div>
+
+          <p>
+              Metode Secant merupakan merupakan perbaikan dari metode regula-falsi dan
+              newton raphson dimana kemiringan dua titik dinyatakan sacara diskrit,
+              dengan mengambil bentuk garis lurus yang melalui satu titik. Metode
+              Secant digunakan untuk menaksirkan akar dengan menggunakan diferensi
+              daripada turunan untuk memperkirakan kemiringan/slope. (Blog Universitas
+              Brawijaya)
+            </p>
+        </div>
+    </div>
+    <div>
+      <h2>Rumus Metode Secant</h2>
+      <div>
+          <p>
+            <b> x2 = x1 – ( (f(x1) (x1 – x0)) / ( f(x1) -f(x0) ) </b>
+        </p>
+          <p>Metode secant merupakan salah satu metode terbuka untuk menentukan solusi akar dari persamaan non linear. Dengan prinsip utama:
+            <ul>
+                <li>
+
+                    Metode ini melakukan pendekatan terhadap kurva f(x) dengan garis secant yang ditentukan oleh 2 titik akhir.
+                </li>
+                <li>
+                    Nilai taksiran akar selanjutnya adalah titik potong antara garis secant dengan sumbu x
+                    
+                </li>
+            </ul>
+        </p>
+        </div>
+    </div>
+    <div>
+        <h2>Prosedur</h2>
+        <div>
+            <p> Ambil dua titik awal, misal x0 dan x1. Ingat bahwa pengambilan titik awal tidak disyaratkan alias pengambilan secara sebarang. Algoritma Metode Secant adalah sebagai berikut: 
+                <ol>
+                    <li>
+                        Definisikan fungsi f(x)
+                    </li>
+                    <li>
+                        Definisikan torelansi error dan iterasi maksimum
+                    </li>
+                    <li>
+                        Masukkan dua nilai pendekatan awal yang di antaranya terdapat akar yaitu x0 dan x1
+                    </li>
+                    <li>
+                        Hitung f(x0) dan f(x1) sebagai y0 dan y1
+                    </li>
+                    <li>
+                        Untuk iterasi I = 1 s/d n atau |f(x2)| maka x2 = x1 – ( (f(x1) (x1 – x0)) / ( f(x1) -f(x0) )
+                    </li>
+                    <li>
+                        Nilai x0 dan x1 untuk iterasi selanjutnya adalah nilai x1 dan x2 secara berurutan
+                    </li>
+                    <li>
+                        Akar persamaannya adalah nilai x2 di iterasi terakhir ketika |f(x2)| < toleransi error
+                    </li>
+                </ol>
+            </p>
+        </div>
+      </div>
+    <div>
+      <h2>Variabel</h2>
+      <div>
+          <p> Daftar variabel dan operasi aritmatika yang digunakan adalah sebagai berikut (javascript): 
+              <ul>
+                  <li><b>f: </b> Fungsi persamaan f(x)</li>
+                  <li><b>epsilon: </b> Nilai toleransi error</li>
+                  <li><b>guessedTotalIteration: </b> Nilai tebakan iterasi maksimum</li>
+                  <li><b>x0: </b> Titik awal</li>
+                  <li><b>x1: </b> Titik akhir</li>
+                  <li><b>tambah: </b> +</li>
+                  <li><b>kurang: </b> -</li>
+                  <li><b>kali: </b> *</li>
+                  <li><b>bagi: </b> /</li>
+                  <li><b>pangkat: </b> **</li>
+                  <li><b>akar: </b> Math.sqrt(x, y)</li>
+              </ul>
+          </p>
+      </div>
+    </div>
+    <div>
+      <h2>Kalkulator Grafik</h2>
+      <div>
+          <span>Masukan persamaan f(x) untuk menentukan titik awal dan titik akhir garis secant</span>
+          <iframe
+          src="https://www.desmos.com/calculator/"
+          width="100%"
+          style="min-height: 400px"
+          ></iframe>
+        </div>
+    </div>
+    <div>
+      <h2>Alat Hitung</h2>
+      <div>
+        <p>Hanya ubah pada daerah yang bisa diubah nilai variabelnya, dan jangan ubah nama variabelnya</p>
+          <button
+          onclick="calculate(document.querySelector('#secantCode').textContent)"
+          >
+          Jalankan
+        </button>
+        <pre><code class="language-js" contenteditable="true" id="secantCode">
+        try {
+            const timeStart = Date.now();
+                
+            // ⬇ -- Daerah yang bisa diubah nilai variabelnya -- ⬇
+                
+            const f = (x) => e ** x - 5 * x ** 2;
+            const epsilon = 0.00001;
+            const guessedTotalIteration = 20;
+            const x0 = 0.5;
+            const x1 = 1;
+            
+            // ⬆ -- Batas daerah -- ⬆
+            
+            const e = 2.7182818285;
+            const calcX2 = (f, x0, x1) => x1 - (f(x1) * (x1 - x0)) / (f(x1) - f(x0));
+            const comma = epsilon.toString().split(".")[1].length + 1;
+            
+            let tempValue = {x0, x1};
+            let result = [];
+          
+            for (let iteration = 0; iteration <= guessedTotalIteration; iteration++) {
+              let rx0 = f(tempValue.x0);
+              let rx1 = f(tempValue.x1);
+              let x2 = calcX2(f, tempValue.x0, tempValue.x1);
+              let rx2 = Math.abs(f(x2));
+          
+              result.push({
+                  x0: tempValue.x0.toFixed(comma),
+                  x1: tempValue.x1.toFixed(comma),
+                  "f(x0)": rx0.toFixed(comma),
+                  "f(x1)": rx1.toFixed(comma),
+                  x2: x2.toFixed(comma),
+                  "f(x2)": rx2.toFixed(comma),
+                });
+                
+                if (rx2 < epsilon) break;
+                
+                tempValue = {x0: tempValue.x1, x1: x2};
+            }
+            
+            const timeEnd = Date.now();
+            const time = timeEnd - timeStart;
+            
+            renderTable(result, time)
+            window.scrollBy(0, 5000)
+        } catch (error) {
+            renderError(error.message)
+        }
+    </code></pre>
+</div>
+</div>
+    <div>
+      <h2>Hasil</h2>
+      <div id="result"></div>
+    </div>
+    <div>
+        <h2>Pustaka</h2>
+        <div>
+            <ul>
+                <li><a href="https://github.com/highlightjs/highlight.js/" target="_blank">Highlightjs</a></li>
+                <li><a href="https://www.desmos.com/" target="_blank">Desmos</a></li>
+                <li><a href="https://blog.ub.ac.id/dimasabdillahakbar/2013/10/05/metode-secant/" target="_blank">Blog Universitas Brawijaya</a></li>
+                <li><a href="https://snowfluke.github.io" target="_blank">Awal Ariansyah</a></li>
+                <li><a href="https://web.facebook.com/profile.php?id=100019053903913" target="_blank">Edgar Miko Fernanda</a></li>
+            </ul>
+        </div>
+      </div>
+
+    <script>
+      const result = document.querySelector("#result");
+      const renderTable = (res, time) => {
+        resultStringTemplate = `
+      <span>Kecepatan: ${time}ms</span>
+      <span>Hampiran akar x: <b>${res[res.length - 1]["x2"]}</b></span>
+      <table>
+        <tr>
+          <th>r</th>
+          <th>x0</th>
+          <th>x1</th>
+          <th>f(x0)</th>
+          <th>f(x1)</th>
+          <th>x2</th>
+          <th>f(x2)</th>
+        </tr>`;
+
+        for (let index in res) {
+          resultStringTemplate += `
+        <tr>
+          <td>${index}</td>
+          <td>${res[index]["x0"]}</td>
+          <td>${res[index]["x1"]}</td>
+          <td>${res[index]["f(x0)"]}</td>
+          <td>${res[index]["f(x0)"]}</td>
+          <td>${res[index]["x2"]}</td>
+          <td>${res[index]["f(x2)"]}</td>
+        </tr>
+            `;
+        }
+        resultStringTemplate += "</table>";
+        result.innerHTML = resultStringTemplate;
+      };
+      const renderError = (msg) => alert(msg);
+      const calculate = (code) => eval(code);
+    </script>
+  </body>
+</html>
