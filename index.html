@@ -155,7 +155,7 @@
               <ul>
                   <li><b>f: </b> Fungsi persamaan f(x)</li>
                   <li><b>epsilon: </b> Nilai toleransi error</li>
-                  <li><b>guessedTotalIteration: </b> Nilai tebakan iterasi maksimum</li>
+                  <li><b>r: </b> Nilai tebakan iterasi maksimum</li>
                   <li><b>x0: </b> Titik awal</li>
                   <li><b>x1: </b> Titik akhir</li>
                   <li><b>tambah: </b> +</li>
@@ -196,7 +196,7 @@
                 
             const f = (x) => e ** x - 5 * x ** 2;
             const epsilon = 0.00001;
-            const guessedTotalIteration = 20;
+            const r = 20;
             const x0 = 0.5;
             const x1 = 1;
             
@@ -209,7 +209,7 @@
             let tempValue = {x0, x1};
             let result = [];
           
-            for (let iteration = 0; iteration <= guessedTotalIteration; iteration++) {
+            for (let iteration = 0; iteration <= r; iteration++) {
               let rx0 = f(tempValue.x0);
               let rx1 = f(tempValue.x1);
               let x2 = calcX2(f, tempValue.x0, tempValue.x1);
