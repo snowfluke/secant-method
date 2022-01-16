@@ -210,21 +210,21 @@
             let result = [];
           
             for (let iteration = 0; iteration <= r; iteration++) {
-              let rx0 = f(tempValue.x0);
-              let rx1 = f(tempValue.x1);
+              let f_x0 = f(tempValue.x0);
+              let f_x1 = f(tempValue.x1);
               let x2 = calcX2(f, tempValue.x0, tempValue.x1);
-              let rx2 = Math.abs(f(x2));
+              let f_x2 = Math.abs(f(x2));
           
               result.push({
-                  x0: tempValue.x0.toFixed(comma),
-                  x1: tempValue.x1.toFixed(comma),
-                  "f(x0)": rx0.toFixed(comma),
-                  "f(x1)": rx1.toFixed(comma),
-                  x2: x2.toFixed(comma),
-                  "f(x2)": rx2.toFixed(comma),
+                  "x0": tempValue.x0.toFixed(comma),
+                  "x1": tempValue.x1.toFixed(comma),
+                  "f(x0)": f_x0.toFixed(comma),
+                  "f(x1)": f_x1.toFixed(comma),
+                  "x2": x2.toFixed(comma),
+                  "f(x2)": f_x2.toFixed(comma),
                 });
                 
-                if (rx2 < epsilon) break;
+                if (f_x2 < epsilon) break;
                 
                 tempValue = {x0: tempValue.x1, x1: x2};
             }
